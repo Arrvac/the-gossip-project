@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'gossips/new', to: 'gossips#new'
-  post '/gossips/new'
+  resources :gossips
   get 'users/:id', to: 'static_pages#user_show'
   get 'gossips/:id', to: 'static_pages#show'
   get 'welcome/:first_name', to: 'static_pages#home'
@@ -9,5 +8,4 @@ Rails.application.routes.draw do
   get 'team', to: 'static_pages#team'
   get '/', to: 'static_pages#home'
   root to: 'staticpages#home'
-  resources :gossips
 end

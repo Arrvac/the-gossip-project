@@ -1,7 +1,14 @@
-
-
-<%= simple_form_for @gossip do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+    <h1 class="display-4"> Here's the scoop </h1>
+    
+    <%= simple_form_for @gossip do |f| %>
+      <%= f.input :title,label: 'Your username please', error: 'Username is mandatory, please specify one'  %>
+      <%= f.input :content %>
+      <%= f.button :submit %>
+    <% end %>
+    </div>
+  </div>
+</div>
 
