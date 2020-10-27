@@ -14,8 +14,9 @@ class GossipsController < ApplicationController
 
   def create
     @gossip = Gossip.new(gossip_params)
-    
+    @gossip.user = User.first
     if @gossip.save
+      flash[:success] = "Welcome to the Sample App!"
       redirect_to @gossip, notice: "Bravo! You created a new message"
     else
       render 'new'
@@ -23,20 +24,18 @@ class GossipsController < ApplicationController
   end
 
   def edit
-    # Méthode qui récupère le potin concerné et l'envoie à la view edit (edit.html.erb) pour affichage dans un formulaire d'édition
+    @gossip = Gossip.find(params[:id])
   end
 
   def update
-    if @gossip.update(params[:gossip].permit(:title, :content))
-      redirect_to @gossip
-    else
-      render 'edit'
-    end
+    @gossip = Gossip.find(params[:id])
+    @gossip.update(gossip_params)
+    redirect_to index_path
   end
 
   def destroy
     # Méthode qui récupère le potin concerné et le détruit en base
-    # Une fois la suppression faite, on redirige généralement vers la méthode index (pour afficher la liste à jour)
+    redirect_to index_path
   end
 
   private

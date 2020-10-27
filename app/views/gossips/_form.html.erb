@@ -1,6 +1,6 @@
 <div class="container">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <%= simple_form_for @gossip local :true do |f| %>
+    <%= simple_form_for @gossip, local: true do |f| %>
       <% if @gossip.errors.any? %>
       <h4><%= pluralize(@gossip.errors.count, "error") %> prevented this message from saving</h4>
         <ul>

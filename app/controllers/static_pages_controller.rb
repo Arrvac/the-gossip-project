@@ -8,7 +8,7 @@ class StaticPagesController < ApplicationController
   end
 
   def index
-    @goss = Gossip.all
+    @gossip = Gossip.all
   end
 
   def team

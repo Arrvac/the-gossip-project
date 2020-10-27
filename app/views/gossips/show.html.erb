@@ -2,9 +2,10 @@
     <div class="cover-container d-flex w-100 p-3 mx-auto flex-column">
         <div class="row">
           <div class="col-md-12">
-            <h1 class="display-5"> My gossip title: <%= @goss_id.title%> </h1>
-            <p class="lead"> My gossip content: <%= @goss_id.content%> </p><br><br>
-            <p class="lead"> Written by user: <%= link_to @goss_id.user.first_name, "/users/#{@goss_id.user.id}" %>
+            <h1 class="display-5"> My gossip title: <%= @gossip.title%> </h1>
+            <p class="lead"> My gossip content: <%= @gossip.content%> </p><br><br>
+            <p class="lead"> Written by user: <%= link_to @gossip.user.first_name, "/users/#{@gossip.user.id}" %>
+            <p class="nav-link active"> <%= link_to "Edit gossip", "/gossips/#{@gossip.id}/edit"%> </p>
             </div>
         </div>
     </div>
