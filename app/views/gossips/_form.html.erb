@@ -1,6 +1,6 @@
 <div class="container">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <%= form_with(model: @gossip, local: true) do |f| %>
+    <%= simple_form_for @gossip local :true do |f| %>
       <% if @gossip.errors.any? %>
       <h4><%= pluralize(@gossip.errors.count, "error") %> prevented this message from saving</h4>
         <ul>
@@ -11,10 +11,8 @@
             <% end %>
         </ul>
         <% end %>
-      <%= f.label :title %>
-      <%= f.text_field :name %>
-      <%= f.label :content %>
-      <%= f.text_field :content %>
-      <%= f.submit "Create gossip", class: "btn btn-primary" %>
+      <%= f.input :title, input_html: { class: 'form-control'} %>
+      <%= f.input :content, input_html: { class: 'form-control'} %>
+      <%= f.submit 'Save' %>
     <% end %>
 </div>
