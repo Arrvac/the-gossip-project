@@ -13,7 +13,13 @@ class GossipsController < ApplicationController
   end
 
   def create
+    @gossip = Gossip.new(params.require(:gossip).permit(:title, :content))
     
+    if @gossip.save
+      redirect_to @gossip, notice: "Bravo! You created a new message"
+    else
+      render 'new'
+    end
   end
 
   def edit
