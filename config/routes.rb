@@ -9,7 +9,5 @@ Rails.application.routes.draw do
   get 'team', to: 'static_pages#team'
   get '/', to: 'static_pages#home'
   root to: 'staticpages#home'
-  resources :gossips do
-    resources :comments
-  end
+  resources :gossips
 end

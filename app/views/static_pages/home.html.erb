@@ -1,10 +1,24 @@
-<div class="jumbotron jumbotron-fluid"
-    <div class="cover-container d-flex w-100 p-3 mx-auto flex-column">
-      <main role="main" class="inner cover">
-        <h1 class="cover-heading">Bienvenue <%= @name%>! </h1>
-        <p class="lead"> Ici c'est notre super site de potins, il est chouette, non ?</p>
-      </main>
-      <footer class="mastfoot mt-auto">
-      </footer>
-    </div>
-    </div>
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">Hello, world!</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </div>
+</div>
+
+<%= simple_form_for @gossip do |f| %>
+  <%= f.input :username, label: 'Your username please', error: 'Username is mandatory, please specify one' %>
+  <%= f.input :password, hint: 'No special characters.' %>
+  <%= f.input :email, placeholder: 'user@domain.com' %>
+  <%= f.input :remember_me, inline_label: 'Yes, remember me' %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= simple_form_for "nicp", defaults: { input_html: { class: 'default_class' } } do |f| %>
+  <%= f.input :username, input_html: { class: 'special' } %>
+  <%= f.input :password, input_html: { maxlength: 20 } %>
+  <%= f.input :remember_me, input_html: { value: '1' } %>
+  <%= f.button :submit %>
+<% end %>
