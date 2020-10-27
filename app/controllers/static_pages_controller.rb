@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @name = params['first_name']
+    @name = params[:first_name]
     puts @name
   end
 
