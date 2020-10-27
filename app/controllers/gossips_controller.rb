@@ -34,7 +34,7 @@ class GossipsController < ApplicationController
   end
 
   def destroy
-    # Méthode qui récupère le potin concerné et le détruit en base
+    @gossip.destroy
     redirect_to index_path
   end
 
