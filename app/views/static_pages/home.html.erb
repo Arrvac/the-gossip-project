@@ -8,18 +8,3 @@
     <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
   </div>
 </div>
-
-<%= simple_form_for @gossip do |f| %>
-  <%= f.input :username, label: 'Your username please', error: 'Username is mandatory, please specify one' %>
-  <%= f.input :password, hint: 'No special characters.' %>
-  <%= f.input :email, placeholder: 'user@domain.com' %>
-  <%= f.input :remember_me, inline_label: 'Yes, remember me' %>
-  <%= f.button :submit %>
-<% end %>
-
-<%= simple_form_for "nicp", defaults: { input_html: { class: 'default_class' } } do |f| %>
-  <%= f.input :username, input_html: { class: 'special' } %>
-  <%= f.input :password, input_html: { maxlength: 20 } %>
-  <%= f.input :remember_me, input_html: { value: '1' } %>
-  <%= f.button :submit %>
-<% end %>
