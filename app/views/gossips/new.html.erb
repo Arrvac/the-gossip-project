@@ -1,0 +1,6 @@
+<%= simple_form_for "nicp", defaults: { input_html: { class: 'default_class' } } do |f| %>
+  <%= f.input :username, input_html: { class: 'special' } %>
+  <%= f.input :password, input_html: { maxlength: 20 } %>
+  <%= f.input :remember_me, input_html: { value: '1' } %>
+  <%= f.button :submit %>
+<% end %>

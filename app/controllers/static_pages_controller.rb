@@ -21,5 +21,5 @@ class StaticPagesController < ApplicationController
   def user_show
     @usr = User.find(params['id'])
   end
-
+  
 end
