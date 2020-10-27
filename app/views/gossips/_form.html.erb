@@ -1,0 +1,18 @@
+<div class="container">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <%= simple_form_for @gossip do |f| %>
+      <% if @gossip.errors.any? %>
+      <h4><%= pluralize(@gossip.errors.count, "error") %> prevented this message from saving</h4>
+        <ul>
+          <% @gossip.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+            <% end %>
+        </ul>
+        <% end %>
+      <%= f.input :title, input_html: { class: 'form-control'} %>
+      <%= f.input :content, input_html: { class: 'form-control'} %>
+      <%= f.submit 'Save' %>
+    <% end %>
+</div>

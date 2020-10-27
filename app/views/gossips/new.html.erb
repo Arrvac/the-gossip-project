@@ -1,13 +1,9 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
-    <h1 class="display-4"> Here's the scoop </h1>
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <%= simple_form_for @gossip do |f| %>
-      <%= f.input :title, input_html: { class: 'form-control'} %>
-      <%= f.input :content, input_html: { class: 'form-control'} %>
-      <%= f.submit 'Save' %>
-    <% end %>
+    <h1 class="display-4"> New Gossip </h1>
+      <h4>Latest and greatest</h4>
+      <%= render 'form' %>
     </div>
   </div>
 </div>
