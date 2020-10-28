@@ -40,7 +40,7 @@ before_action :find_gossip, only: [:show, :edit, :update, :destroy]
 
   private
     def gossip_params
-      params.require(:gossip).permit(:title, :content)
+      params.require(:gossip).permit(:title, :content, :tag)
     end
 
     def find_gossip

@@ -11,9 +11,8 @@
                 |
                 <%= link_to 'Delete', gossip_path(@gossip), method: :delete, data: {confirm: 'Are you sure?'}%>
             </p>
-            <%= render 'formTags' %>
             <% @gossip.tags.each do |tag|%>
-                <p> <%= tag.user.first_name %> : <%= tag.title %> </p>
+                <p> tag : <%= tag.title %> </p>
             <% end %>
             </div>
         </div>
