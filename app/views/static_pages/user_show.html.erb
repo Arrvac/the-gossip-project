@@ -11,6 +11,7 @@
       <p class="lead">
         <%= @usr.age %> years
         <%= @usr.email %>
+        <p class="lead"> City: <%= link_to @usr.city.name, city_path(@usr.city.id) %>
       </p>
     </div>
   </div>
