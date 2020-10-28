@@ -3,6 +3,20 @@
         <div class="row">
           <div class="col-md-12">
             <h1 class="display-5"> My city name: <%= @city.name%> </h1>
+            <div class="card-deck message">
+                <% @city.users.each do |user| %>
+                    <% user.gossips.each do |gossip| %>
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Le potin de <%= gossip.user.first_name%></h5>
+                                <p class="card-text"><%= gossip.content%></p>
+                                <%= link_to gossip.title, "/gossips/#{gossip.id}" %>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+
+            </div>
             </div>
         </div>
     </div>

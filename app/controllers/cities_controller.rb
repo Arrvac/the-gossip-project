@@ -1,9 +1,5 @@
 class CitiesController < ApplicationController
 before_action :find_city, only: [:show]
-      def index
-        @cities = Gossip.all
-      end
-    
       def show
       end
     
