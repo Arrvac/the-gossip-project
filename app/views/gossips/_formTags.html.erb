@@ -1,17 +1,17 @@
 <div class="container">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <%= simple_form_for @gossip.tag, local: true do |f| %>
-      <% if @gossip.tag.errors.any? %>
-      <h4><%= pluralize(@gossip.tag.errors.count, "error") %> prevented this message from saving</h4>
+    <%= simple_form_for @gossip, local: true do |f| %>
+      <% if @gossip.errors.any? %>
+      <h4><%= pluralize(@gossip.errors.count, "error") %> prevented this message from saving</h4>
         <ul>
-          <% @gossip.tag.errors.full_messages.each do |msg| %>
+          <% @gossip.errors.full_messages.each do |msg| %>
           <li>
             <%= msg %>
           </li>
             <% end %>
         </ul>
         <% end %>
-      
+      <%= f.association :tags %>
       <%= f.input :title, input_html: { class: 'form-control'} %>
       <%= f.submit 'Save' %>
     <% end %>
