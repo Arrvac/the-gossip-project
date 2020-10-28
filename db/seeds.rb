@@ -40,7 +40,7 @@ end
 puts "20 Gossips créés"
 
 10.times do
-  tag = Tag.create(title: Faker::Lorem.word)
+  tag = Tag.create(title: Faker::Lorem.word, user: users.sample)
   tags << tag
 end
 puts "10 Tags créés"

@@ -13,7 +13,7 @@
             </p>
 
             <% @gossip.tags.each do |tag|%>
-                <p> Gossip tag : <%= tag.title %> </p>
+                <p> <%= tag.user.first_name %> : <%= tag.title %> </p>
             <% end %>
             </div>
         </div>
