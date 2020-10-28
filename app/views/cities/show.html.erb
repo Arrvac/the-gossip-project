@@ -10,7 +10,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Le potin de <%= gossip.user.first_name%></h5>
                                 <p class="card-text"><%= gossip.content%></p>
-                                <%= link_to gossip.title, "/gossips/#{gossip.id}" %>
+                                <%= link_to gossip.title, gossip_path(gossip.id) %>
                             </div>
                         </div>
                     <% end %>
