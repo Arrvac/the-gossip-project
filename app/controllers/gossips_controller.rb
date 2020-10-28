@@ -1,11 +1,11 @@
 class GossipsController < ApplicationController
+before_action :find_gossip, only: [:show, :edit, :update, :destroy]
 
   def index
     @gossip = Gossip.all
   end
 
   def show
-    @gossip = Gossip.find(params[:id])
   end
 
   def new
@@ -24,11 +24,9 @@ class GossipsController < ApplicationController
   end
 
   def edit
-    @gossip = Gossip.find(params[:id])
   end
 
   def update
-    @gossip = Gossip.find(params[:id])
     @gossip.update(gossip_params)
     redirect_to index_path
   end
@@ -41,5 +39,9 @@ class GossipsController < ApplicationController
   private
     def gossip_params
       params.require(:gossip).permit(:title, :content)
+    end
+
+    def find_gossip
+      @gossip = Gossip.find(params[:id])
     end
 end
