@@ -12,6 +12,7 @@ Tag.destroy_all
 Gossip.destroy_all
 User.destroy_all
 City.destroy_all
+Message.destroy_all
 
 cities = Array.new
 users = Array.new
@@ -19,6 +20,7 @@ gossips = Array.new
 tags = Array.new
 gossip_tags = Array.new
 private_messages = Array.new
+messages = Array.new
 
 10.times do
   city = City.create(name: Faker::Address.city, zip_code: Faker::Address.postcode)
@@ -38,6 +40,12 @@ puts "10 Users créés"
   gossips << gossip
 end
 puts "20 Gossips créés"
+
+20.times do
+  message = Message.create(content: Faker::Lorem.sentence(word_count: 10), user: users.sample, gossip: gossips.sample)
+  messages << message
+end
+puts "20 messages créés"
 
 10.times do
   tag = Tag.create(title: Faker::Lorem.word)
