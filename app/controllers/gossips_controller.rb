@@ -24,6 +24,7 @@ before_action :find_gossip, only: [:show, :edit, :update, :destroy]
   end
 
   def edit
+    find_gossip
   end
 
   def update
@@ -32,8 +33,9 @@ before_action :find_gossip, only: [:show, :edit, :update, :destroy]
   end
 
   def destroy
-    @gossip.destroy
-    redirect_to index_path
+    @gossip = find_gossip
+    @gossip.delete
+    redirect_to gossips_path
   end
 
   private
