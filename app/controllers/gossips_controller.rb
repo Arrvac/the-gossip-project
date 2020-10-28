@@ -15,11 +15,11 @@ before_action :find_gossip, only: [:show, :edit, :update, :destroy]
   def create
     @gossip = Gossip.new(gossip_params)
     @gossip.user = User.first
+    flash[:success] = "Welcome to the Sample App!"
     if @gossip.save
-      flash[:success] = "Welcome to the Sample App!"
       redirect_to @gossip, notice: "Bravo! You created a new message"
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -29,7 +29,7 @@ before_action :find_gossip, only: [:show, :edit, :update, :destroy]
 
   def update
     @gossip.update(gossip_params)
-    redirect_to index_path
+    redirect_to @gossip
   end
 
   def destroy
