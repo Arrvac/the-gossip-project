@@ -4,12 +4,16 @@
           <div class="col-md-12">
             <h1 class="display-5"> My gossip title: <%= @gossip.title%> </h1>
             <p class="lead"> My gossip content: <%= @gossip.content%> </p><br><br>
-            <p class="lead"> Written by user: <%= link_to @gossip.user.first_name, "/users/#{@gossip.user.id}" %>
+            <p class="lead"> 
+                Written by: <%= link_to @gossip.user.first_name, "/users/#{@gossip.user.id}" %> 
+                in <%= link_to @gossip.user.city_id, "/users/city#{@gossip.user.city_id}" %></p> 
+                <!-- Dont know how to write this correctly -->
             <p class="nav-link active"> <%= link_to "Edit gossip", "/gossips/#{@gossip.id}/edit"%> </p>
             <p class="nav-link active"><%= link_to 'Edit', edit_gossip_path(@gossip) %></p>
         |   <p class="nav-link active"><%= link_to 'Delete', gossip_path(@gossip), 
                                                             method: :delete, 
-                                                            data: {confirm: 'Are you sure?'} %></p>
+                                                            data: {confirm: 'Are you sure?'} %></p> 
+                            <!-- This doesnt delete the gossip -->
             </div>
         </div>
     </div>
