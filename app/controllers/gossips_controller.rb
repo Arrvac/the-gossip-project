@@ -1,4 +1,5 @@
 class GossipsController < ApplicationController
+before_action :authenticate_user, only: [:new, :create, :show, :edit, :destroy]
 before_action :find_gossip, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -14,7 +15,7 @@ before_action :find_gossip, only: [:show, :edit, :update, :destroy]
 
   def create
     @gossip = Gossip.new(gossip_params)
-    @gossip.user = User.first
+    @gossip.user = current_user
     flash[:success] = "Welcome to the Sample App!"
     if @gossip.save
       redirect_to @gossip, notice: "Bravo! You created a new message"
@@ -28,6 +29,7 @@ before_action :find_gossip, only: [:show, :edit, :update, :destroy]
   end
 
   def update
+    @gossip = find_gossip
     @gossip.update(gossip_params)
     redirect_to @gossip
   end
@@ -45,5 +47,11 @@ before_action :find_gossip, only: [:show, :edit, :update, :destroy]
 
     def find_gossip
       @gossip = Gossip.find(params[:id])
+    end
+
+    def authenticate_user
+      if !current_user
+        redirect_to new_session_path
+      end
     end
 end

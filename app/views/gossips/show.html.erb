@@ -6,11 +6,13 @@
             <p class="lead"> My gossip content: <%= @gossip.content%> </p><br><br>
             <p class="lead"> Written by user: <%= link_to @gossip.user.first_name, "/users/#{@gossip.user.id}" %>
             <p class="lead"> City: <%= link_to @gossip.user.city.name, city_path(@gossip.user.city.id) %>
-            <p class="nav-link active">
-                <%= link_to 'Edit', edit_gossip_path(@gossip) %>
-                |
-                <%= link_to 'Delete', gossip_path(@gossip), method: :delete, data: {confirm: 'Are you sure?'}%>
-            </p>
+            <% if @gossip.user == current_user%>
+                <p class="nav-link active">
+                    <%= link_to 'Edit', edit_gossip_path(@gossip) %>
+                    |
+                    <%= link_to 'Delete', gossip_path(@gossip), method: :delete, data: {confirm: 'Are you sure?'}%>
+                </p>
+            <% end%>
             <p>
             tag : 
             <% @gossip.tags.each do |tag|%>
