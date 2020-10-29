@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-2">
+      <%= gravatar_for(@user) %>
+    </div>
+    <div class="col-md-3">
+      <h1 class="display-4">
+        <%= @user.first_name %>
+        <%= @user.last_name %>
+      </h1> 
+      <p class="lead">
+        <%= @user.age %> years
+        <%= @user.email %>
+        <p class="lead"> City: <%= link_to @user.city.name, city_path(@user.city.id) %>
+      </p>
+    </div>
+  </div>
+</div>
