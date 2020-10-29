@@ -23,8 +23,10 @@
             Message: 
             <% @gossip.messages.each do |message|%>
                  <p><%= message.content %>
-                 <%= link_to 'Edit', edit_message_path(message) %> | 
-                 <%= link_to 'Delete', message_path(message), method: :delete, data: {confirm: 'Are you sure?'} %></p>
+                 <% if @gossip.user == current_user%>
+                    <%= link_to 'Edit', edit_message_path(message) %> | 
+                    <%= link_to 'Delete', message_path(message), method: :delete, data: {confirm: 'Are you sure?'} %></p>
+                 <% end%>
             <% end %>
             </p>
             </div>
