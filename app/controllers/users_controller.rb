@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params.require(:user).permit(:first_name, :last_name, :email, :age, :password))
-    @user.city = City.first
+    @user.city = City.sample
     if @user.save
       redirect_to login_path, notice: "Bravo! You created a new message"
     else
